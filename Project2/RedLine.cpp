@@ -3,7 +3,6 @@
 
 RedLine::RedLine(glm::vec4 start, glm::vec4 end)
 {
-	
 	m_start = start;
 	m_end = end;
 	setup();
@@ -12,17 +11,14 @@ RedLine::RedLine(glm::vec4 start, glm::vec4 end)
 void RedLine::setup()
 {
 	GLfloat line_vertices[] = {
-		// front
-		m_start[0], m_start[1], m_start[2],
-		m_end[0], m_end[1], m_end[2],
+		1.0, 1.0, 1.0,
+		0.0, 0.0, 0.0,
 	};
 
 	GLfloat line_colors[] = {
-		// front colors
 		1.0, 0.0, 0.0,
 		1.0, 0.0, 0.0,
 	};
-
 
 	glGenVertexArrays(1, &vaoHandle);		//create a vao
 	glBindVertexArray(vaoHandle);			//"activate" or "im going to do somthing on here" 	
@@ -52,13 +48,6 @@ void RedLine::setup()
 
 	glBindVertexArray(0);			//unbinding
 
-}
-
-void RedLine::update(glm::vec4 start, glm::vec4 end)
-{
-	m_start = start;
-	m_end = end;
-	setup();
 }
 
 void RedLine::draw()

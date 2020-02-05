@@ -76,13 +76,10 @@ void MyGlWindow::draw(float rotate, float X_translation, float Y_translation, bo
 
 	// Draw the Red Line
 	m_model.glPushMatrix();
+
 	m_model.glRotate(rotate, 0, 1, 0);
-	m_model.glTranslate(2, 2 * height + 1, 0);
-
-	glm::vec4 start = glm::vec4((2 * (height - 2) * X_translation), 0, 0, 1);
-	glm::vec4 end = glm::vec4((2 * (height - 2) * X_translation), -(2 * (height - 1) * Y_translation), 0, 1);
-
-	m_line->update(start, end);
+	m_model.glTranslate(2 + (2 * (height - 2) * X_translation), 2 * height + 1, 0);
+	m_model.glScale(0, -(2 * (height - 1) * Y_translation), 0);
 
 	model = m_model.getMatrix();
 	mvp = projection * view * model;

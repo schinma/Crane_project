@@ -22,7 +22,6 @@ private:
 
 public:
 	RedLine(glm::vec4 start, glm::vec4 end);
-	void update(glm::vec4 start, glm::vec4 end);
 	void draw();
 
 };
